@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e72a2ce4c8bfc4e8549928900b9051, type: 3}
   m_Name: Warrior
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  life: 10
+  life: 100
   damage: 1
-  speed: 1
+  speed: 3
