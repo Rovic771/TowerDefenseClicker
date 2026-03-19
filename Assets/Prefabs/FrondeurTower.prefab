@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1848396591344001925}
   - component: {fileID: 1100984524592596919}
   - component: {fileID: 3176714204410674352}
-  m_Layer: 0
+  - component: {fileID: -6962410555116138160}
+  m_Layer: 9
   m_Name: FrondeurTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.21499991, y: -3.47, z: -8.8}
-  m_LocalScale: {x: 0.7, y: 1.9024599, z: 0.7}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 335042578729861931}
@@ -105,7 +106,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FrondeurTowerScript
   projectile: {fileID: 5716890215487902287, guid: ed813c50dbc0d7e41b93e4e3f4b22742, type: 3}
-  _towerData: {fileID: 11400000, guid: 296cf9059499d19419b2cc08f08803d6, type: 2}
+  _towerType: {fileID: 11400000, guid: 296cf9059499d19419b2cc08f08803d6, type: 2}
+  life: 0
+  damage: 0
+  level: 0
+--- !u!65 &-6962410555116138160
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4110751936300882057}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6843986811712568105
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +142,7 @@ GameObject:
   - component: {fileID: 335042578729861931}
   - component: {fileID: 5363635315716887345}
   - component: {fileID: 6116035439782727224}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Detection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -172,6 +197,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd26eb318ff0e8544a1ca30d48bc6bbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  _towerSystem: {fileID: 3176714204410674352}
   _projectile: {fileID: -175185833824146140, guid: ed813c50dbc0d7e41b93e4e3f4b22742, type: 3}
   listEnemy: []

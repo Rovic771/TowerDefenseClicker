@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7e72a2ce4c8bfc4e8549928900b9051, type: 3}
   m_Name: Tank
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  life: 50
+  life: 100
   damage: 5
-  speed: 0.5
+  speed: 1

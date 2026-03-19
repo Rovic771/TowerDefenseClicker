@@ -13,9 +13,4 @@ public class FrondeurTowerScript : Tower
     {
         
     }
-
-    public override void Shoot(Vector3 target)
-    {
-        
-    }
 }

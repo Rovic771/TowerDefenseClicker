@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -8,9 +9,20 @@ public class Projectile : MonoBehaviour
     private Vector3 direction;
     private Rigidbody rb;
 
+    IEnumerator LifeTime()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
+    }
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(LifeTime());
     }
 
     public void ShootProjectile(Vector3 target)

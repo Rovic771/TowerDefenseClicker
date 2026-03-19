@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
         objectifs = GameManager.Instance.objectifs;
         currentDestination = objectifs[0].position;
         agent = GetComponent<NavMeshAgent>();
+        enemyLife = enemyType.life;
+        enemyDamage = enemyType.damage;
         agent.speed = enemyType.speed;
         if (agent != null && objectifs != null)
         {
@@ -44,7 +46,7 @@ public class Enemy : MonoBehaviour
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Projectile"))
         {
-            enemyLife -= 35;
+            enemyLife -= 10;
             if (enemyLife <= 0)
             {
                 Die();
