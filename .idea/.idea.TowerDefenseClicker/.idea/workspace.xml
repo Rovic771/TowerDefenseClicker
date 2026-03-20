@@ -6,18 +6,21 @@
   <component name="ChangeListManager">
     <list default="true" id="c6a60b88-f823-4978-9889-1eea0089e650" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TowerDefenseClicker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TowerDefenseClicker/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FrondeurTower.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/FrondeurTower.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Frondeur.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Frondeur.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FrondeurTower.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/FrondeurTower.prefab.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh-Cube 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene/NavMesh-Cube 2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy/Enemy.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Towers/Type/FrondeurTowerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Towers/Type/FrondeurTowerScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Towers/Type/WarriorTowerScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Towers/Type/WarriorTowerScript.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Settings/DefaultVolumeProfile.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/DefaultVolumeProfile.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SystemGridPlacement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SystemGridPlacement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/PC_RPAsset.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/PC_RPAsset.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/UniversalRenderPipelineGlobalSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/UnityConnectSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Search.settings" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Search.settings" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,6 +188,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/ILViewer/ffaa790c2e964d459c865d0df70ccd5c1400/f1/42cb7a62/02000002pdb1.il" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scriptable/WaveSystem/WaveSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/Type/enemyWarrior.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObject/Ressources.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObject/TowerData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ScriptableObject/WarriorTowerData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Towers/Type/WarriorTowerScript.cs" root0="FORCE_HIGHLIGHTING" />
@@ -260,6 +265,8 @@
       <workItem from="1773738880099" duration="18910000" />
       <workItem from="1773826544994" duration="12676000" />
       <workItem from="1773911328512" duration="8285000" />
+      <workItem from="1773927565185" duration="6417000" />
+      <workItem from="1773997648908" duration="13947000" />
     </task>
     <servers />
   </component>

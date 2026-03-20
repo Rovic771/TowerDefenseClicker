@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
     private Vector3 currentDestination;
     private int currentDestinationIndex;
+    private float lifeMultiplicator;
     [HideInInspector] public float enemyLife;
     [HideInInspector] public float enemyDamage;
     
@@ -17,7 +18,8 @@ public class Enemy : MonoBehaviour
         objectifs = GameManager.Instance.objectifs;
         currentDestination = objectifs[0].position;
         agent = GetComponent<NavMeshAgent>();
-        enemyLife = enemyType.life;
+        enemyLife = enemyType.life * (0.8f + (0.2f * GameManager.Instance.currentRound));
+        Debug.Log("Vie de l'ennemi" + enemyLife);
         enemyDamage = enemyType.damage;
         agent.speed = enemyType.speed;
         if (agent != null && objectifs != null)
@@ -28,8 +30,9 @@ public class Enemy : MonoBehaviour
     
     void Update()
     {
-        if (Vector3.Distance(transform.position, currentDestination) < 0.5f)
+        if (Vector3.Distance(transform.position, currentDestination) <1f)
         {
+            Debug.Log("bien arrivé");
             currentDestinationIndex += 1;
             currentDestination = objectifs[currentDestinationIndex % objectifs.Length].position;
             agent.SetDestination(currentDestination);
@@ -41,7 +44,8 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Base"))
         {
-            Die();
+            BaseManager.Instance.DamageBase();
+            Die(other.gameObject);
         }
 
         if (other.gameObject.layer == LayerMask.NameToLayer("Projectile"))
@@ -49,15 +53,20 @@ public class Enemy : MonoBehaviour
             enemyLife -= 10;
             if (enemyLife <= 0)
             {
-                Die();
+                Die(other.gameObject);
             }
             Debug.Log("EnemyLife" + enemyLife);
             Destroy(other.gameObject);
         }
     }
-
-    void Die()
+    
+    
+    void Die(GameObject other)
     {
+        if (other.layer == LayerMask.NameToLayer("Projectile"))
+        {
+            RessourceManager.Instance.IncrementGold();
+        }
         Destroy(gameObject);
     }
 }

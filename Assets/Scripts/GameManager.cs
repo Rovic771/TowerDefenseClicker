@@ -1,7 +1,9 @@
 using System.Collections;
 using JetBrains.Annotations;
 using TMPro;
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject tank;
     [SerializeField] private int delaySpawn = 1;
     [SerializeField] private TextMeshProUGUI roundTexte;
+    [SerializeField] private GameObject gameOverMenu;
+    private SystemGridPlacement systemGridPlacement;
     public static GameManager Instance;
     public float maxEnemyRound = 5;
     public int enemySpawned;
@@ -45,6 +49,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
         GenerationTypeEnemyNumber(Mathf.RoundToInt(maxEnemyRound));
+        systemGridPlacement = GetComponent<SystemGridPlacement>();
     }
 
     private void LaunchRound()
@@ -140,5 +145,21 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(DelayBetweenRound());
         }
+    }
+
+    public void GameOver()
+    {
+        gameOverMenu.SetActive(!gameOverMenu.activeSelf);
+        Time.timeScale = 0;
+    }
+
+    public void RestartButton()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void QuitButton()
+    {
+        Application.Quit();
     }
 }

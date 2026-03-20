@@ -3,43 +3,93 @@ using UnityEngine;
 public class SystemGridPlacement : MonoBehaviour
 {
     public float gridSize = 3;
-    public GameObject towerToPlace;
-    public LayerMask groundLayer; 
-    
-    // On ajoute le calque des tours pour que le radar sache quoi chercher
-    public LayerMask towerLayer; 
+    public GameObject towerToPlace;     
+    public GameObject previewPrefab;    
+    public LayerMask groundLayer;
+    public LayerMask obstaclesLayer; 
+    private GameObject currentPreview;  
+    private bool isPlacing = false;    
+    private bool isHoveringGround = false; 
     
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (isPlacing && currentPreview != null)
         {
-            PlaceTower();
+            UpdatePreviewPosition();
+            
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (isHoveringGround)
+                {
+                    if (RessourceManager.Instance.Gold >= 50 && (RessourceManager.Instance.Gold - RessourceManager.Instance.towerPrice) >= 0)
+                    {
+                        PlaceTower(); 
+                    }
+                    else
+                    {
+                        CancelPlacement();
+                    }
+                }
+            }
+            
+            if (Input.GetMouseButtonDown(1))
+            {
+                CancelPlacement();
+            }
         }
     }
-
-    private void PlaceTower()
+    
+    public void StartPlacementMode()
+    {
+        if (currentPreview != null) 
+        {
+            Destroy(currentPreview);
+        }
+        currentPreview = Instantiate(previewPrefab);
+        isPlacing = true;
+    }
+    
+    private void UpdatePreviewPosition()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 2f);
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, groundLayer)) 
+        
+        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, groundLayer))
         {
+            isHoveringGround = true;
+            currentPreview.SetActive(true); 
+            
             Vector3 pointImpact = hit.point;
             float snappedX = Mathf.Round(pointImpact.x / gridSize) * gridSize;
             float snappedZ = Mathf.Round(pointImpact.z / gridSize) * gridSize;
-            Vector3 positionFinale = new Vector3(snappedX, -3.5f, snappedZ);
-            Collider[] collidersContact = Physics.OverlapSphere(positionFinale, 0.5f, towerLayer);
-            if (collidersContact.Length == 0)
-            {
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
-                {
-                    Instantiate(towerToPlace, positionFinale, Quaternion.identity);
-                }
-            }
-            else
-            {
-                Debug.Log("collider touché :  " + collidersContact[0].gameObject.name);
-            }
+            currentPreview.transform.position = new Vector3(snappedX, -3.5f, snappedZ);
         }
+        else
+        {
+            isHoveringGround = false;
+            currentPreview.SetActive(false); 
+        }
+    }
+    
+    private void PlaceTower()
+    {
+        Vector3 positionFinale = currentPreview.transform.position;
+        Collider[] collidersContact = Physics.OverlapSphere(positionFinale, 0.5f, obstaclesLayer, QueryTriggerInteraction.Ignore);
+        if (collidersContact.Length == 0)
+        {
+            Instantiate(towerToPlace, positionFinale, Quaternion.identity);
+            isPlacing = false;
+            RessourceManager.Instance.DecrementGold();
+            Destroy(currentPreview);
+        }
+        else
+        {
+            Debug.Log("obstacle");
+        }
+    }
+    
+    private void CancelPlacement()
+    {
+        isPlacing = false;
+        Destroy(currentPreview);
     }
 }
